@@ -70,7 +70,7 @@ fun HomeScreen(navController: NavController) {
 
         //viewModel.getDistricts("506")
 
-        viewModel.getPrayerTimes("9206")
+        //viewModel.getPrayerTimes("9206")
 
     }
 
