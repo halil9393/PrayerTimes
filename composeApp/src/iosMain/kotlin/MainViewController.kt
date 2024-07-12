@@ -1,11 +1,18 @@
-import androidx.compose.runtime.remember
 import androidx.compose.ui.window.ComposeUIViewController
-import database.DBFactory
+import di.appModule
+import org.koin.core.context.startKoin
 import ui.App
 
 fun MainViewController() = ComposeUIViewController {
-    val dao = remember{
-        DBFactory().createDatabase().getDao()
+
+    startKoin {
+        modules(appModule())
     }
-    App(dao)
+    App()
+
+    /*KoinApplication(application = {
+        init()
+    }) {
+        App()
+    }*/
 }

@@ -16,35 +16,31 @@ import org.koin.core.KoinApplication
 
 @Composable
 @Preview
-fun App(mDayDao: MDayDao) {
-    KoinApplication(application = {
-        modules(appModule())
-    }) {
-        MaterialTheme {
-            val mDay by mDayDao.getAllMDay().collectAsState(initial = emptyList())
-            val scope = rememberCoroutineScope()
-            LaunchedEffect(true){
-                val mDayList = listOf(
-                    MDay(Aksam = "123"),
-                    MDay(Aksam = "345"),
-                    MDay(Aksam = "678")
-                )
+fun App() {
+    MaterialTheme {
+        //val mDay by mDayDao.getAllMDay().collectAsState(initial = emptyList())
+        val scope = rememberCoroutineScope()
+        LaunchedEffect(true){
+            val mDayList = listOf(
+                MDay(Aksam = "123"),
+                MDay(Aksam = "345"),
+                MDay(Aksam = "678")
+            )
 
-                mDayList.forEach {
-                    //mDayDao.insert(it)
-                }
-                println("database room")
-
-                scope.launch {
-                    mDayDao.getAllMDay().collect{
-                        it.forEach {
-                            println(it)
-                        }
-                    }
-                }
+            mDayList.forEach {
+                //mDayDao.insert(it)
             }
-            AppNavigation()
+            println("database room")
+
+            scope.launch {
+                //mDayDao.getAllMDay().collect{
+                //  it.forEach {
+                //println(it)
+                //}
+                //}
+            }
         }
+        AppNavigation()
     }
 
 }

@@ -5,5 +5,5 @@ import org.koin.dsl.module
 import repository.NetworkRepository
 
 val provideRepositoryModule = module {
-    single<NetworkRepository> { NetworkRepository(get(named("EzanVaktiApiClient"))) }
+    single<NetworkRepository> { NetworkRepository(get(named("EzanVaktiApiClient")),get()) }
 }

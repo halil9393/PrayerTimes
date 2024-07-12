@@ -38,4 +38,21 @@ class HomeViewModel(private val networkRepository: NetworkRepository) : ViewMode
             }
         }
     }
+
+    fun getPrayerTimesFromDB(){
+        viewModelScope.launch {
+            networkRepository.getPrayerTimesFromDB().collect{
+                it.forEach {
+                    println(it)
+                }
+            }
+
+        }
+    }
+
+    fun insert(){
+        viewModelScope.launch {
+            networkRepository.insert()
+        }
+    }
 }
