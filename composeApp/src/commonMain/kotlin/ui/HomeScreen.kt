@@ -73,7 +73,11 @@ fun HomeScreen(navController: NavController) {
         //viewModel.getPrayerTimes("9206")
 
         //viewModel.insert()
-        viewModel.getPrayerTimesFromDB()
+        //viewModel.getPrayerTimesFromDB()
+
+        viewModel.setValueToPreferences("key1","value1")
+
+        viewModel.getValueFromPreferences("key1")
 
     }
 

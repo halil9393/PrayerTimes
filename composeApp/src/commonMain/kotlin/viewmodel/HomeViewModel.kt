@@ -50,6 +50,20 @@ class HomeViewModel(private val networkRepository: NetworkRepository) : ViewMode
         }
     }
 
+    fun getValueFromPreferences(key : String){
+        viewModelScope.launch {
+            networkRepository.getValueFromPreferences(key).collect{
+                println(it)
+            }
+        }
+    }
+
+    fun setValueToPreferences(key : String, value : String){
+        viewModelScope.launch {
+            networkRepository.setValueToPreferences(key, value)
+        }
+    }
+
     fun insert(){
         viewModelScope.launch {
             networkRepository.insert()

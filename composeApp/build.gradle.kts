@@ -33,6 +33,8 @@ kotlin {
     sourceSets.commonMain{
         kotlin.srcDir("build/generated/ksp/metadata")
     }
+
+    task("testClasses")
     
     sourceSets {
         
@@ -44,6 +46,8 @@ kotlin {
             implementation(libs.kotlinx.coroutines.android)
 
             implementation(libs.koin.android)
+
+            implementation(libs.data.store)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
